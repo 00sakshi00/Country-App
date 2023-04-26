@@ -17,6 +17,8 @@ searchBtn.addEventListener("click", () => {
       //   console.log(
       //     Object.values(data[0].languages).toString().split(",").join(", ")
       //   );
+      //   console.log(data[0].maps.googleMaps);
+
       result.innerHTML = `
         <img src="${data[0].flags.svg}" class="flag-img">
         <h2>${data[0].name.common}</h2>
@@ -43,16 +45,35 @@ searchBtn.addEventListener("click", () => {
                 <h4>Currency:</h4>
                 <span>${
                   data[0].currencies[Object.keys(data[0].currencies)].name
-                } - ${Object.keys(data[0].currencies)[0]}</span>
+                } - ${Object.keys(data[0].currencies)[0]}
+                </span>
+                <h4>  &nbsp&nbsp&nbsp&nbsp&nbsp Symbol:</h4>
+                <span>${
+                  data[0].currencies[Object.keys(data[0].currencies)].symbol
+                }
+                </span>
             </div>
         </div>
-         <div class="wrapper">
+        <div class="wrapper">
             <div class="data-wrapper">
                 <h4>Common Languages:</h4>
                 <span>${Object.values(data[0].languages)
                   .toString()
                   .split(",")
                   .join(", ")}</span>
+            </div>
+        </div>
+        <div class="wrapper">
+            <div class="data-wrapper">
+                <h4>Time Zone:</h4>
+                <span>${data[0].timezones}</span>
+            </div>
+        </div>
+        
+        <div class="wrapper">
+            <div class="data-wrapper">
+                <h4>Map:</h4>
+                <span><a href = ${data[0].maps.googleMaps} target="_blank">map</a</span>
             </div>
         </div>
       `;
